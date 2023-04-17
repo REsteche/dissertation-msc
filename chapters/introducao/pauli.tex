@@ -1,0 +1,61 @@
+\section{O argumento de Pauli}
+\label{motivacao}
+
+Agora, vamos voltar nossa atenção para a abordagem matemática formal que embasa a problemática do tempo como um operador. A intenção é motivar tanto a proposta de solução da Ref. \cite{Dias} para esse problema, como também a necessidade da nossa interpretação para a extensão espaço-tempo-simétrica da Ref. \cite{Dias}. 
+
+Vamos assumir que a construção do operador temporal na Eq.~(\ref{eq1.2}) seja válida. Nesse cenário, vamos mostrar que ao aplicarmos um operador unitário $\exp \left[i E^{\prime} \hat{T} / \hbar \right]$ com $E^{\prime} \in \mathbb{R}$, no autoestado de energia $| E \rangle$ irá produzir um novo autoestado com autovalor $E$ $-E^{\prime}$, ou seja, essa aplicação irá deslocar de $- E^{\prime}$ a energia do estado $| E \rangle$. Portanto, dado um autovalor $E \in \mathbb{R}$, podemos então escolher um $ E^{\prime} \in \mathbb{R}$ qualquer para acessar um determinado estado de energia $E$ $-E^{\prime}$ desejado.
+
+Para começar, vamos expandir o operador exponencial acima em série de potências de forma que
+\begin{equation}\label{eq1.4}
+    e^{iE^\prime \hat{T}/\hbar} = \sum_{n=0}^{\infty} \frac{1}{n!} \left( \frac{iE^\prime \hat{T}}{\hbar} \right)^n .
+\end{equation}
+Agora aplicando o operador hamiltoniano pela esquerda, obtemos
+\begin{equation}\label{eq1.5}
+    \hat{H} e^{iE^\prime \hat{T}/\hbar} = \sum_{n=0}^{\infty} \frac{1}{n!} \hat{H} \left( \frac{iE^\prime \hat{T}}{\hbar} \right)^n .
+\end{equation}
+Para entender como o operador $\hat{H}$ atua em $\hat{T}^n$, vamos utilizar a relação de comutação (\ref{eq1.2}) para criar uma relação de recorrência envolvendo $n$ e $n-1$. Isolando então $\hat{H}\hat{T}$ na Eq.~(\ref{eq1.2}), 
+\begin{equation}\label{eq1.6}
+   \hat{H}\hat{T} = \hat{T}\hat{H} + [\hat{H},\hat{T}] = \hat{T}\hat{H} + i\hbar.
+\end{equation}
+Aplicando o operador $\hat{T}$ pela direita obtemos
+\begin{equation}\label{eq1.7}
+   \hat{H}\hat{T}^2 = \hat{T}\hat{H}\hat{T} + i\hbar \hat{T}
+\end{equation}
+e substituindo a Eq.~(\ref{eq1.6}) na Eq.~(\ref{eq1.7}) é fácil ver que 
+\begin{equation}\label{eq1.8}
+   \hat{H}\hat{T}^2 = \hat{T} \left( \hat{T}\hat{H} + i\hbar \right) + i \hbar \hat{T} = \hat{T}^2\hat{H} + 2i\hbar \hat{T}.
+\end{equation}
+Se repetirmos o mesmo procedimento de aplicar o operador temporal à direita, só que agora na Eq.~(\ref{eq1.8}), e utilizarmos Eq.~(\ref{eq1.6}), obtemos 
+\begin{equation}\label{eq1.9}
+     \hat{H}\hat{T}^3  = \hat{T}^2 \hat{H}\hat{T} + 2 i\hbar \hat{T}^2 = \hat{T}^2 \left( \hat{T}\hat{H} + i\hbar \right) + 2i\hbar \hat{T}^2 = \hat{T}^3\hat{H} + 3 i\hbar \hat{T}^2.
+\end{equation}
+À essa altura já está claro que repetindo esse procedimento $n$ vezes, obtemos
+\begin{equation}\label{eq1.10}
+     \hat{H}\hat{T}^n = \hat{T}^{n} \hat{H} + 2i\hbar \hat{T}^{n-1}.
+\end{equation}
+Portanto, podemos utilizar a relação de recorrência acima na Eq.~(\ref{eq1.5}),
+\begin{equation}\label{eq1.11}
+\begin{split}
+    \hat{H} e^{iE^\prime \hat{T}/\hbar} & = \sum_{n=0}^{\infty} \frac{1}{n!} \left( \frac{iE^\prime}{\hbar} \right)^n \left(\hat{T}^n\hat{H} + n i\hbar \hat{T}^{n-1} \right) \\
+    & = e^{iE^\prime \hat{T}/\hbar}\hat{H} - \sum_{n=1}^{\infty} \frac{E^\prime}{(n-1)!}  \left( \frac{iE^\prime \hat{T}}{\hbar} \right)^{n-1},
+\end{split}
+\end{equation}
+ou seja, 
+\begin{equation}\label{eq1.12}
+     \hat{H} e^{iE^\prime \hat{T}/\hbar} = e^{iE^\prime \hat{T}/\hbar}(\hat{H} - E^\prime).
+\end{equation}
+Finalmente, aplicando o operador acima em $| E \rangle$, temos
+\begin{equation}\label{eq1.13}
+    \hat{H} e^{iE^\prime \hat{T}/\hbar}\left | E \right \rangle = e^{iE^\prime \hat{T}/\hbar} (E - E^\prime)\left | E \right \rangle = (E - E^\prime)e^{iE^\prime \hat{T}/\hbar}\left | E \right \rangle.
+\end{equation}
+Como queríamos provar, a aplicação do operador unitário promove um deslocamento de $-E^\prime$, que pode ser arbitrariamente grande ou também infinitesimalmente pequeno dependendo da magnitude de $-E^{\prime}$. Dessa forma, a energia pode se estender de $-\infty$ até $\infty$ continuamente, contrariando a necessidade de qualquer sistema possuir um limite inferior de energia. 
+
+A necessidade de um limite (inferior) da energia pode ser pensada de formas diferentes, por exemplo, sabemos que os sistemas tendem para o estado de menor energia (livre). Se o hamiltoniano não é limitado por baixo, não há um mínimo global de energia e, portanto, não há estado fundamental. Dessa forma, tal sistema é capaz de cair para níveis de energia cada vez mais baixos. Em consequência, o sistema é capaz de irradiar energia infinitamente, o que é obviamente um absurdo, pois nenhum sistema físico pode conter uma quantidade infinita de energia acessível. Embora possamos descrever matematicamente tal sistema, seu comportamento não é algo que observamos no mundo real.
+
+Dito isso, precisamos então tal qual foi dito por Pauli, abandonar fundamentalmente a ideia de um operador $\hat{T}$ que seja hermitiano e satisfaça a relação $\left[ \hat{H}, \hat{T} \right] = i \hbar$. Dessa forma, a relação de incerteza energia-tempo tem sido ressignificada, por exemplo $\Delta t$ pode ser entendido como
+\begin{equation}\label{eq1.14}
+    \Delta t = \frac{\sigma_{Q}}{|d \langle Q \rangle / d t|}
+\end{equation}
+onde $\Delta t \Delta \hat{H} \geqslant \hbar / 2$ (sendo $\Delta t$ o tempo necessário de $\langle \hat{Q} \rangle$ variar um desvio padrão), e $\hat{Q}$ e $\sigma_{Q}$ dizem respeito a um um observável quântico qualquer e seu desvio padrão, respectivamente. Esse tratamento diferenciado de $\Delta t$ implica que diferentes observáveis $\hat{Q}$ têm diferentes "incertezas" $\text{ }$temporais.
+
+A assimetria entre tempo e os observáveis quânticos exposta através do argumento de Pauli é uma consequência do tempo não ser uma variável dinâmica, e sim um parâmetro na descrição do estado quântico. Variáveis dinâmicas, nesse sentido, se tornam operadores por serem quantidades mensuráveis de um sistema físico cujo estado é condicionado a um dado instante de tempo. Sendo assim, por décadas a ideia de que era impossível introduzir um operador temporal que fosse simultaneamente hermitiano e canonicamente conjugado ao operador de energia vingou na teoria quântica. Na última seção deste capítulo, vamos discutir brevemente a hipótese formulada na Ref. \cite{Dias}, que propõe um formalismo espaço-tempo-simétrico onde o tempo se torna um observável e posição um parâmetro. Utilizando uma quantização distinta da usual, esse operador tempo tanto comuta com $\hat{H}$ como mantém sua hermiticidade, contrariando assim o argumento de Pauli. Uma revisão detalhada desse formalismo será feita no capítulo \ref{chap:cap2}.

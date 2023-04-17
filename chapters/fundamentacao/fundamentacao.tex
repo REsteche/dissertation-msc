@@ -1,0 +1,388 @@
+\chapter{Formalismos sobre o tempo de chegada}
+\label{chap:cap2}
+
+Neste capítulo vamos revisar os modelos de Kijowski e \textit{Quantum flux}, que são distribuições do tempo de chegada ideal, preparando assim terreno para as comparações que serão feitas no capítulo seguinte. Em seguida, vamos abordar de forma mais detalhada o formalismo matemático da teoria STS.  
+
+%exemplo de inputs, ideal para organização e troca de posicionamento futuro é ter um elemento por arquivo
+%\input{chapters/fundamentacao/tabelas/tabelaex}
+
+
+
+\section{O Fluxo Quântico e a distribuição de Kijowski}
+\label{sec:cap2intro}
+
+A definição de "chegar"\text{ }em uma região específica é complicada devido à incerteza da mecânica quântica. Conceitos bem definidos são, por exemplo, aqueles do primeiro e último cruzamento de um pacote de onda \cite{14}. Portanto, para descrever o tempo de chegada de uma partícula, é importante definir claramente o conceito de "chegar". Segundo Allcock, essa área de pesquisa é ainda mais complicada do que parece, dado que ele sugere que "é muito improvável que a mecânica quântica admita qualquer conceito de tempo de chegada ideal"\text{ }\cite{allcock}. Apesar dessas ressalvas, o tempo de chegada foi estudado em profundidade por vários autores, cada um com sua abordagem específica. Descreveremos agora, em um pouco mais de detalhes, duas abordagens consideradas tradicionais sobre o tempo de chegada.
+
+
+
+
+\subsection{O Fluxo Quântico}
+\label{sub:fluxoquantico}
+
+
+O fluxo quântico de probabilidade (também conhecido como corrente de probabilidade para o caso unidimensional) é um conceito que remonta aos primórdios da MQ, e essa grandeza advém do comportamento probabilístico da mesma. A conexão do fluxo quântico com o tempo de chegada na MQ pode ser explicada mais simplesmente  para o caso onde a probabilidade da partícula ser encontrada dentro de uma região $G$ diminui monotonicamente com o tempo. Para satisfazer esse requisito é suficiente que a função de onda $\psi(x|t)$ da partícula pertença ao conjunto
+\begin{equation}\label{eqJ1}
+	C^+ := \{ \psi | \textbf{j}_{\psi} (\mathbf{x}, t) \cdot d \textbf{S} \geqslant 0, \forall \text{ } \mathbf{x} \in \partial G, \forall t \geqslant 0\},
+\end{equation}
+onde 
+\begin{equation}\label{eqJ2}
+  \mathbf{j}_{\psi} (\mathbf{x}, t) = \frac{\hbar}{2m} \mathrm{Im}\left( \psi^*(\mathbf{x}| t) \nabla \psi(\mathbf{x}| t) \right)
+\end{equation}
+é a corrente de probabilidade, $\partial G$ é a região de contorno de $G$, e $d \textbf{S}$ é um elemento de superfície apontando para fora. 
+
+
+Nessas condições específicas, define-se a probabilidade de que a partícula atravesse (chegue em) $\partial G$ depois do tempo $t$, $\mathcal{P}$(depois de $t$), como a probabilidade da partícula estar dentro de $G$ no instante $t$, $\int_G |\psi (\mathbf{x}|t)|^2 d^3 \mathbf{x}$. Portanto, a probabilidade da partícula chegar em $\partial G$ durante o intervalo de tempo $dt$ é calculada seguindo
+\begin{eqnarray}\label{eqJ3}
+    \Pi_j (\mathbf{x},t) dt &=& \mathcal{P}(\text{depois de } t + dt) - \mathcal{P}(\text{depois de } t) \nonumber\\ &=& \int_G |\psi(\mathbf{x}|t + dt)|^2 d^3 \mathbf{x} - \int_G |\psi(\mathbf{x}|t)|^2  d^3 \mathbf{x}\nonumber\\
+        &=& \frac{d}{dt} \left( \int_G |\psi (\mathbf{x}| t)|^2 d \mathbf{x} \right)dt = \left( \int_{\partial G} \textbf{j}_{\psi} (\mathbf{x}, t) \cdot d\textbf{S} \right)dt.
+\end{eqnarray}
+ Note que na ultima igualdade utilizamos a equação de continuidade da probabilidade, e vemos que a densidade de probabilidade temporal da partícula chegar na area $\partial G$ é igual a $\int_{\partial G} \textbf{j}_{\psi} (\mathbf{x}, t) \cdot d\textbf{S}$, o fluxo quântico. Apesar de ser um dos modelos mais tradicionais do tempo de chegada ideal, a expressão acima tem um problema com sua interpretação probabilística, visto que $\Pi_{j} (\mathbf{x},t)$ pode admitir valores negativos em um longo, mas ainda finito, intervalo de tempo \cite{Das2}, efeito este denominado \textit{backflow effect}. Existem algumas alternativas conhecidas para contornar esse problema, as duas principais são: (i) a adoção de operadores semidefinidos positivos no espaço de Hilbert usual (o que constitui um \textit{positive operator-valued measure} --- POVM). Dado que qualquer medição quântica pode ser descrita por um POVM, a intenção dessa solução é buscar um POVM que concorde com a expressão da Eq.~(\ref{eqJ3}) para o conjunto de funções de onda da Eq.~(\ref{eqJ1}) \cite{4}. Contudo, existem classes de funções de onda que não permitem essa descrição para sua corrente de probabilidade. (ii) A segunda alternativa é a utilização de trajetórias bohmianas visto que nessa formulação as partículas possuem trajetórias bem definidas, contornando assim o problema de \textit{backflow} \cite{Das}. 
+ 
+ Note que para o caso unidimensional $\Pi_j (x,t) = j_{\psi} (x,t)$. Considerando que a partícula é detectada em um tempo finito, a expressão deve ser normalizada. Para evitar probabilidades negativas, define-se a distribuição temporal de chegada em $x_A$ como
+\begin{equation}\label{eqJ4}
+\Pi (x_A,t) = \frac{|\Pi_{j} (x_A,t)|}{\int^{\infty}_{-\infty} dt |\Pi_{j} (x_A,t)|}.
+\end{equation}
+ Embora a validade dessa expressão ainda seja objeto de debate, ela representa um dos modelos mais tradicionais na descrição de uma medida ideal de tempo de chegada. 
+
+% \subsection{Potencial Complexo}
+% \label{sub:outrasubsection1b}
+
+
+
+
+% O potencial complexo é uma ferramenta matemática usada na mecânica quântica visto sua capacidade de interagir com um sistema que tenha seu comportamento determinado por parte real e uma parte imaginária. A parte imaginária do potencial complexo pode estar relacionada à absorção ou emissão de partículas, enquanto a parte real descreve o movimento das partículas nesse sistema. A relação entre o potencial complexo e a distribuição dos tempos de chegada pode ser entendida considerando a equação de Schrödinger dependente do tempo, que descreve a evolução de um sistema quântico ao longo do tempo. Quando uma partícula está sujeita a um potencial complexo, a função de onda da partícula geralmente será modificada tanto em amplitude quanto em fase à medida que ela se move através desse tipo de potencial.
+
+
+% Como argumentamos anteriormente, a fase da função de onda pode ser usada para determinar o tempo de chegada da partícula em um ponto específico do espaço. Especificamente, a fase da função de onda pode ser usada como um relógio para medir o tempo que a partícula leva para chegar a um ponto específico no espaço. Ao introduzir um potencial complexo na equação de Schrödinger, podemos determinar o efeito do potencial na função de onda e, portanto, a distribuição dos tempos de chegada. Especificamente, a parte imaginária do potencial complexo modificará a fase da função de onda, enquanto a parte real modificará a amplitude da função de onda. Essa modificação da função de onda pode ser usada para determinar a distribuição dos tempos de chegada em uma determinada posição.
+
+
+% A introdução dessa ferramenta no tratamento temporal da mecânica quântica se deu através dos trabalhos de Allcock [1] usando uma função degrau puramente imaginária na sua forma mais simples como $V(x) = -i V_0 \Theta(x).$ Atualmente, é bem estabelecido que nessa abordagem, grandes valores de $V_0$ apresentarão altas taxas de reflexão (consequência do efeito Zeno) enquanto para pequenos valores onde $V_0$ tende a 0, a partícula será completamente absorvida, mas em um intervalo de espaço tão grande que resultará em uma deformação na forma de um atraso no tempo de chegada da densidade de probabilidade.
+
+
+% A construção desse formalismo se baseia na definição de uma probabilidade de não detecção/absorção de uma partícula cruzando o ponto x = 0 durante um intervalo de tempo $\left[ 0, \tau \right]$ como sendo $N (\tau) = \langle \psi(\tau)|\psi(\tau)\rangle$. Portanto, definimos a probabilidade de detecção de forma que
+% \begin{equation}\label{eq1}
+%    N (\tau = \infty) = 1 - \int_{0}^\tau dt \Pi(t)
+% \end{equation}
+
+% Ou seja, o fluxo de probabilidade da partícula cruzar $x=0$ em um intervalo de tempo arbitrário $\left[ \tau, \tau + d\tau \right]$ é definido pela derivada $\Pi(\tau) = - d N/d\tau$ , então a partir da equação de continuidade que definimos anteriormente da equação de Schrödinger, perceba que
+% \begin{equation}\label{eqcomp1}
+%      \frac{\partial \rho(x,t)}{\partial t} = - \frac{\partial J}{\partial x} + \frac{1}{\hbar} V_c (x) \rho (x,t)
+% \end{equation}
+% onde mais uma vez $\rho(x,t) = |\psi (x,t)|^2$ e $V_c$ equivale a parte complexa do nosso potencial. Perceba que se $V_c(x) = 0$ para $x<0$ e $x<L$, podemos definir a expressão anterior entre 0 e $L$ no caso de termos um potencial complexo absorvedor ideal como sendo
+% \begin{equation}\label{eq2}
+%     \frac{d N^+}{d t} =  J(0,t) + \frac{1}{\hbar} <V_c>
+% \end{equation}
+% onde $N^+$ é a norma para $x>0$, $N^+ \equiv \int_0^L \rho (x) dx$, isto é, $N^- \equiv \int_{-\infty}^0 \rho (x) dx = - J (0,t)$. Como é fácil ver, se definirmos $N = N^+ + N^-$, 
+% \begin{equation}\label{eq2}
+%     \Pi(\tau) = - \frac{d N}{d\tau} = \frac{1}{\hbar} <V_c (x)> =\frac{1}{\hbar} \int \rho(x,t) V_c(x) dx.
+% \end{equation}
+
+% Para a comparação que queremos realizar aqui, iremos utilizar o modelo proposto em [3] para potenciais complexos considerando dois dos potenciais propostos naquele artigo; primeiro, usaremos o modelo proposto por Muga et al de um potencial de absorção ideal que garante mais de $99,9\%$ de absorção dentro de um intervalo arbitrário, correspondendo a um potencial não constante em $x$ que pode ser escrito como
+% \begin{equation}\label{eq3}
+%   V(x) = \begin{cases}
+%        0, & \text{for } x < 0\\
+%        p_{0}^{2} + 2(x-1)^{-1} \left( x + \frac{1}{1 + i p_{0}} \right)^{-1}, & \text{for } 0< x<1\\
+%        \infty, & \text{for } x > 1
+%         \end{cases}
+% \end{equation}
+% e também vamos considerar um potencial constante que, dados os parâmetros do nosso problema, garante uma absorção de $87,9\%$ da nossa onda na forma de $V(x) = -i V_0, \text{onde } V_0=2 .$ No contexto dessa comparação, o segundo potencial (constante) representa uma versão mais física de um experimento, dado a impossibilidade de construção de um potencial que atue como absorvedor ideal. As distribuições que calculamos para os potenciais complexos são normalizadas tomando 
+% \begin{equation}\label{eq4}
+%     \Pi(\tau)_{\text{norm}} = \left. \int - \frac{d N}{d\tau}  \tau d\tau \right/ \int - \frac{d N}{d\tau} d\tau. 
+% \end{equation}
+
+
+% Visto que assim como o modelo do Fluxo de probabilidade, $\Pi(\tau)_{\text{norm}}$ fornece uma densidade de probabilidade, precisamos então utilizar o mesmo procedimento para obter uma função de onda com o formato $ \phi (t|0)$ (tirando a raiz quadrada da sua condição inicial e multiplicando-a por uma fase complexa) para compará-lo com o STS espaço condicionado.
+
+
+\subsection{O Modelo Axiomatico de Kijowski}
+\label{sub:kijows}
+
+Em uma tentativa de compreender melhor a relação entre tempo e energia na MQ, Kijowski \cite{Kijo} desenvolveu uma distribuição de probabilidade para os tempos de chegada de partículas livres. Sua abordagem consistiu em identificar as propriedades mínimas que uma distribuição de TOA deve satisfazer no caso clássico livre e, em seguida, exigir propriedades semelhantes no regime quântico. 
+
+
+Primeiramente, Kijowski provou um teorema que uma distribuição do tempo de chegada deveria obedecer: considere o conjunto de funcionais bilineares positivos contínuos $F$ de funções de onda $\psi$ restritas a momentos positivos e que são invariantes sob translações espaciais. Além disso, para qualquer $\psi$ normalizado, assuma que $\int dt F[\psi_t] = 1$, onde $\psi_t$ é o estado evoluído a partir do estado inicial $\psi_0 = \psi$. Considere também que $F[\bar{\psi}] = F[\psi]$ e que a dispersão definida como
+\begin{equation}
+	\int_{-\infty}^{+\infty} d t \text{ } t^2 F\left[\psi_t\right]-\left(\int_{-\infty}^{+\infty} d t \text{ } t F\left[\psi_t\right]\right)^2
+\end{equation}
+seja finita. Sendo assim, o teorema afirma que existe então um funcional único $F_0$ para o qual esta variância é mínima. É importante reconhecer que o valor médio $\int d t \text{ } t F[\psi_t]$ é constante sobre esta classe de funcionais. O funcional $F_0$ é representado pela expressão
+\begin{equation}
+	F_0[\psi] = \int \frac{d P_1 dP_2}{2\pi m} \bar{\psi}(P_1)\sqrt{P_1 P_2}\psi(P_2).
+\end{equation}
+ Uma vez que este funcional é definido apenas para funções com momentos positivos, as suas variáveis de integração são restritas de $0$ a infinito. 
+ 
+ 
+ A densidade de probabilidade do tempo de chegada para esses estados é definida como
+\begin{equation}
+	\Pi_{+}^K(t) = F_0\left[\psi_t\right]=\left|\int_0^{\infty} d P \sqrt{\frac{P}{2 \pi m \hbar}} e^{-i P^2 t / 2 m \hbar} \psi(P)\right|^2 .
+\end{equation}
+Aqui, a média de $t$ com $\Pi_{+}^K(t)$, $\int \text{d} t \text{ } t \Pi_{+}^K(t)$, coincide com a "média" \text{ }calculada através do fluxo quântico $j_{\psi}(x,t)$. Observe também que estamos lidando com o caso livre, o que significa que a amplitude de $P$ do estado evoluído $\psi_t$ está relacionada à amplitude $P$ do estado $\psi$ no instante inicial $(t = 0)$ via
+\begin{equation}
+	\psi_t(P)=e^{-i P^2 t / 2 m \hbar} \psi(P).
+\end{equation}
+
+
+Kijowski admitiu que $\Pi_{+}^K(t)$ diz respeito apenas às partículas que incidem pela esquerda, mas que as chegadas pela direita levam, por simetria, à uma expressão análoga, $\Pi_{-}^K(t)$, definida abaixo. Dessa forma, ele concluiu que uma densidade de probabilidade total da chegada no tempo $t$ na posição $x = 0$ de uma partícula em movimento livre em uma dimensão é dada por
+\begin{equation}\label{eqK1}
+\Pi_\psi^K(t)=\left|\int_0^{\infty} d P \sqrt{\frac{P}{2 \pi m \hbar}} e^{-i P^2 t / 2 m \hbar} \psi(P)\right|^2+\left|\int_{-\infty}^0 d P \sqrt{\frac{-P}{2 \pi m \hbar}} e^{-i P^2 t / 2 m \hbar} \psi(P)\right|^2 .
+\end{equation}
+Considerando uma situação de medição confirmada, vamos impor uma normalização para essa expressão
+\begin{equation}\label{eqK2}
+\Pi_{K}^{N} (t) = \frac{\Pi_{+} (t) + \Pi_{-} (t)}{N_{K}},
+\end{equation}
+onde
+\begin{equation}\label{eqK3}
+N_{K} = \int_{-\infty}^{+\infty} dt \sum_{\alpha \in \{+,-\}} \Pi_{\alpha} (t).
+\end{equation}
+
+
+
+
+
+\section{A extensão STS da MQ}
+\label{sec:stsreview}
+
+Nesta seção, iremos revisar a extensão STS usando uma notação semelhante à usada em \cite{Parana}. Para facilitar a compreensão da interpretação proposta na próxima seção, vamos formular a extensão STS traçando um paralelo com conceitos básicos da MQ. Vale ressaltar que o artigo original da extensão STS \cite{Dias} é um artigo relativamente curto, portanto ainda falta uma formulação mais detalhada dessa teoria.
+
+
+
+
+Como introduzimos previamente, o objetivo da extensão STS proposta na Ref.~\cite{Dias} é lidar com situações experimentais complementares àquelas envolvendo distribuições condicionadas temporalmente \textit {intrínsecas à partícula}, $|\psi(x|t)|^ 2 $. Note que podemos nos perguntar sobre a probabilidade conjunta, ${\mathcal P}(x,t)dxdt$, de encontrar a partícula em uma dada região do espaço $[x,x+dx]$ e em um certo intervalo de tempo $[t,t+dt]$. Nessas condições ${\mathcal P}(x,t)$ é igual à densidade de probabilidade de encontrar a partícula na posição $x$ dado que a observação ocorre precisamente em $t$, ${\mathcal P}(x|t )=|\psi(x|t)|^2$, vezes a densidade de probabilidade ${\mathcal P}(t)$ do sistema ser medido no instante $t$, qualquer que seja o resultado. Assim, temos
+\begin{eqnarray}
+\label{P1}
+{\mathcal P}(x,t)dxdt={\mathcal P}(x|t){\mathcal P}(t)dxdt=|\psi(x|t)|^2{\mathcal P}(t)dxdt,
+\end{eqnarray}
+onde ${\mathcal P}(x,t)$ e ${\mathcal P}(t)$ não podem ser obtidos exclusivamente através de $|\psi(x|t)|^2$. Vale ressaltar que a última igualdade da Eq.~(\ref{P1}) atribui à ${\mathcal P}(x|t)$ o módulo ao quadrado de uma função complexa. Sabe-se que esta relação, juntamente com a linearidade da MQ, diferencia a teoria quântica de uma teoria clássica de probabilidade. Essas características juntas permitem a existência de probabilidades do tipo $|\psi_1(x|t)+\psi_2(x|t)|^2$, que leva ao fenômeno de interferência nas possíveis posições onde se pode encontrar uma partícula. A partir da Eq.~(\ref{P1}), Ref. \cite{Dias} define uma função de onda global $\Psi(x,t)$ cujo módulo quadrado é a distribuição de probabilidade conjunta de $x$ e $t$ , ${\mathcal P}(x,t)=|\Psi(x,t)|^2$, e é normalizável por integração no espaço e no tempo. 
+
+Por outro lado, o teorema de Bayes permite que ${\mathcal P}(x,t)$ seja reescrito como
+\begin{eqnarray}
+\label{P2}
+{\mathcal P}(x,t)dxdt={\mathcal P}(t|x){\mathcal P}(x)dxdt \equiv|\phi(t|x)|^2 {\mathcal P}( x)dxdt,
+\end{eqnarray}
+onde ${\mathcal P}(t|x)$ é a densidade de probabilidade de encontrar a partícula em $t$, dado que a medição ocorre na posição $x$. Além disso, ${\mathcal P}(x)$ é a distribuição de probabilidade das medições de posição independentemente do momento em que ocorrem. Observe que $x$ e $t$ desempenham papéis opostos na Eq.~(\ref{P2}) em comparação com a Eq.~(\ref{P1}). A última igualdade da Eq.~(\ref{P2}) é o ponto crucial da extensão STS. Essa relação conjectura que a distribuição de probabilidade temporal ${\mathcal P}(t|x)$, analogamente à distribuição espacial $P(x|t)=|\psi(x|t)|^2$, vem do módulo quadrado de uma função complexa, mas agora condicionada na posição $x$. Dessa forma, o fenômeno de interferência do instante em que uma partícula é observada surge naturalmente. A partir dessa perspectiva, a MQ ordinária não-relativística pode ser vista como uma MQ \textit{temporalmente condicionada} (TC) e a extensão STS como uma MQ \textit{espacialmente condicionada} (EC). O trabalho nessa dissertação tem como foco a função de onda EC, $\phi(t|x)$, ao invés da função de onda global $\Psi(x,t)$.
+
+
+
+
+
+Agora, temos a intuição física para definir os elementos matemáticos da extensão STS fazendo um paralelo com a MQ usual. Na teoria quântica comum, o estado de uma partícula unidimensional sem spin é definido em um instante de tempo $t$ e pertence a um espaço de Hilbert $\mathcal{H}_{t}$. Além disso, posição é um operador atuando em ${\mathcal H}_{t}$ tal que
+\begin{equation}\label{position}
+{\hat {\textrm X}} |x\rangle_{t}=x|x\rangle_{t}~~{ e}~~ [{\hat {\textrm X}},{\hat {\textrm P}}]=i\hbar,
+\end{equation}
+onde ${_{t}\langle} x|x' \rangle_t=\delta (x-x')$ e ${\hat {\textrm P}}$ é o operador de momento. A notação $|\rangle_t$ não significa que este ket tem uma dependência temporal; em vez disso, apenas enfatiza que $|\rangle_t$ pertence a ${\mathcal H}_t$. A relação de comutação~(\ref{position}) leva ao princípio de incerteza de posição e momento, $\Delta {\hat {\textrm X}} \Delta {\hat {\textrm P}} \geq \hbar/2 $, onde $\Delta$ é a raiz quadrada do erro médio. Na representação da posição, $\hat P$ é
+\begin{equation}\label{momentum}
+{_t\langle } x|{\hat { P}}| x' \rangle_t=- \delta(x-x') i\hbar \frac{\partial}{\partial x^\prime} 
+\end{equation}
+e seu autoestado $|P\rangle_t$, com ${\hat P}|P\rangle_t= P |P\rangle_t$, é
+\begin{equation}\label{autoestadoP}
+|P\rangle_{t}=\frac{1}{\sqrt{2\pi \hbar}} \int_{-\infty}^{\infty} e^{iPx/\hbar} |x\rangle_{t}.
+\end{equation}
+Aqui, a solução da indentidade é tal que
+\begin{equation}\label{identityX}
+\int_{-\infty}^{\infty} dx ~|x\rangle_t \langle x|=\int_{-\infty}^{\infty} dP~ |P\rangle_t\langle P|= \mathbb{I}.
+\end{equation}
+
+A informação física sobre a posição da partícula em um instante de tempo $t$ está contida em $|\psi(t)\rangle$ via a expansão
+\begin{equation}\label{expansionX}
+|{\psi(t)} \rangle=\int_{-\infty}^{\infty} dx~ \psi(x|t) |x\rangle_t,
+\end{equation}
+que é solução da equação de Schrödinger
+\begin{equation}\label{Schro}
+{\hat {\textrm H}}|{\psi(t)} \rangle=i\hbar \frac{d}{dt}|{\psi(t)} \rangle,
+\end{equation}
+onde ${\hat {\textrm H}}$ é obtida através do Hamiltoniano clássico via a regra de quantização $(x,P) \rightarrow ({\hat {\textrm X}},{\hat {\textrm P}})$, i.e.,
+\begin{equation}\label{ruleX}
+H(x,P;t)=\frac{P^2}{2m}+V(x,t) ~ \rightarrow ~ {\hat {\textrm H}}({\hat {\textrm X}},{\hat {\textrm P}};t)=\frac{{\hat {\textrm P}}^2}{2m}+{\hat {\textrm V}}({\hat {\textrm X}},t).
+\end{equation}
+
+
+Substituindo a Eq.~(\ref{ruleX}) na representação de posição da Eq.~\eqref{Schro}, obtemos
+\begin{equation}\label{Schro2}
+\left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x,t)\right] \psi(x|t)=i\hbar \frac{\partial}{\partial t}{\psi ( x|t)}.
+\end{equation}
+Finalmente, a probabilidade de encontrar a partícula na região $[x,x+dx]$ dado que a medição ocorre no tempo $t$ é
+\begin{equation}\label{rhoX}
+\rho(x|t) dx=|{_t\langle} x|\psi(t)\rangle|^2dx=\psi^{*}(x|t)\psi(x|t) dx.
+\end{equation}
+
+
+Agora, voltemos nossa atenção para a extensão STS proposta na Ref. \cite{Dias}. Para facilitar o entendimento, vamos formular a extensão STS seguindo os mesmos passos executados acima para a MQ tradicional. Na extensão STS, o estado de uma partícula unidimensional sem spin, $|\phi(x)\rangle$, é definido em cada posição $x$ e pertence a um espaço de Hilbert ${\mathcal H}_{x}$. O tempo é um operador ${\hat {\mathbbm T}}$ agindo sobre ${\mathcal H}_{x}$ canonicamente conjugado ao operador hamiltoniano ${\hat {\mathbbm H}}$ (que é diferente de ${\hat {\textrm H}}$ da Eq.~(\ref{ruleX})), ou seja,
+\begin{equation}\label{time}
+{\hat {\mathbbm T}}|t\rangle_{x} =t|t\rangle_{x}~~{ \text{e}}~~ [{\hat {\mathbbm H}}, {\hat{\mathbbm T}}]=i\hbar,
+\end{equation}
+onde ${_x \langle} t|t' \rangle_x=\delta (t-t')$. A relação de comutação leva à relação de incerteza energia-tempo, $\Delta {\hat {\mathbbm T}} \Delta {\hat {\mathbbm H}} \geq \hbar/2 $. Semelhante a $|\rangle_t$ na MQ, o índice $x$ não significa que $|\rangle_x$ tem uma dependência espacial, mas sim que pertence à ${\mathcal H}_x$. Essa notação não foi usada nas Refs. (\cite{Dias},\cite{Ricardo},\cite{Parana}), e foi introduzida aqui para facilitar a interpretação dos autoestados da extensão STS que discutiremos no próximo capítulo.
+
+
+É importante não confundir o Hamiltoniano ${\hat {\mathbbm H}}$ atuando em ${\mathcal H}_x$ com o Hamiltoniano ${\hat {\textrm H}}$ da MQ atuando em ${\mathcal H}_t$, embora se refiram ao mesmo hamiltoniano da mecânica clássica. A diferença entre eles vem do fato de seguirem regras de quantização distintas e com isso pertencerem a diferentes espaços de Hilbert. Na representação de tempo, ${\hat {\mathbbm H}}$ é definido como
+\begin{equation}\label{energy}
+{_x \langle} t|{\hat {\mathbbm H}}|t\rangle_x =\delta(t-t')i\hbar \frac{\partial}{\partial t},
+\end{equation}
+e seu autoestado $|E\rangle_x$, ${\hat {\mathbbm H}}|E\rangle_x= E |E\rangle_x$, torna-se
+\begin{equation}\label{autoestadoH}
+|E\rangle_x=\frac{1}{\sqrt{2\pi \hbar}} \int_{-\infty}^{\infty}dt~ e^{-iE t/\hbar} |t\rangle_x.
+\end{equation}
+Neste espaço de Hilbert, a resolução da identidade é
+\begin{equation}\label{identityT}
+\int_{-\infty}^{\infty} dt ~|t\rangle_x\langle t|=\int_{-\infty}^{\infty} dE~ |E\rangle_x\langle E|= \mathbb{I }.
+\end{equation}
+Comparando as Eqs.~(\ref{position})-(\ref{identityX}) com as Eqs.~(\ref{time})-(\ref{identityT}), observamos que, assim como acontece com espaço e tempo, o momento e a energia desempenham papéis opostos em ${\mathcal H}_t$ e ${\mathcal H}_x$. Note que pela Eq.~(\ref{identityT}), $E$ pode ser a priori negativo, da mesma forma que $P$ na Eq.~(\ref{identityX}). Nesse cenário, assim como os coeficientes de $|\psi(t)\rangle$ na base $\{|P\rangle_t\}$ selecionam os possíveis momentos do sistema dependendo da situação física (definida pelo potencial e as condições iniciais e de contorno), os coeficientes de $|\phi(x)\rangle$ representados em $\{|E\rangle_x\}$ selecionam as energias do sistema. Como na própria formulação da teoria a base $\{|E\rangle_x\}$ inclui energias de menos a mais infinito, o argumento de Pauli não se aplica à extensão STS.
+
+
+De forma análoga à Eq.~(\ref{expansionX}), com  $x \rightleftarrows t$, a informação física do TOA de uma partícula na posição $x$ está contida em $|\pmb{\phi}(x)\rangle$ via a expansão
+\begin{equation}\label{expansionT}
+|{\pmb \phi(x)} \rangle =\int_{-\infty}^{\infty} dt~ \pmb \phi(t|x) ~|t\rangle_{x},
+\end{equation}
+onde $\pmb{\phi}(t|x)$ é um vetor de duas componentes. Como fazemos $x \rightleftarrows t$ (e $P \rightleftarrows E$) na MQ usual para formular a extensão STS, vemos que $|\pmb \phi(x) \rangle$ deve mudar espacialmente de forma análoga a como $|\psi(t)\rangle$ evolui no tempo através da equação de Schrödinger~(\ref{Schro}). Como discutido acima, o gerador de translações temporais  ${\hat {\textrm H}}$ é obtido pela quantização do hamiltoniano clássico dada pela Eq.~(\ref{ruleX}). Portanto, para obter o gerador de translações espaciais correspondente na extensão STS, devemos aplicar as novas regras de quantização~(\ref{time}) e~(\ref{energy}) ao momento clássico, i.e.,
+\begin{eqnarray}\label{ruleP}
+P(t,H;x)&=&\pm \sqrt{2m\big [H-V(x,t)\big ]} \nonumber\\
+\rightarrow {\hat {\mathbbm P}}({\hat {\mathbbm T}},{\hat {\mathbbm H}};x)&=&\sigma_{z} \sqrt{2m\left[{\hat {\mathbbm H}}-V(x,{\hat {\mathbbm T}})\right]}.
+\end{eqnarray}
+onde $\sigma_z={\textrm {diag}}(+1,-1)$. Então, para que a translação espacial de $|\pmb \phi(x)\rangle$ seja análoga à translação temporal de $|\psi(t)\rangle$, $|\pmb \phi(x)\rangle$ deve obedecer
+\begin{equation}\label{SchroT}
+{\hat {\mathbbm P}}|{\pmb{\phi}(x)} \rangle=-i\hbar \frac{d}{dx}|{\pmb{\phi}(x) \rangle}.
+\end{equation}
+A partir de agora, iremos nos referir a Eq.~(\ref{SchroT}) como a equação de Schrödinger EC. Na representação do tempo, $\{|t\rangle_x\}$ , Eq.~(\ref{SchroT}) é tal que
+\begin{equation}\label{Schro2T}
+\sigma_{z} \sqrt{2m\left(i\hbar\frac{\partial}{\partial t}-V(x,t)\right)}\pmb{\phi}(t|x)=-i\hbar \frac{\partial \pmb{\phi}(t,x)}{\partial x},
+\end{equation}
+onde 
+\begin{equation}\label{solT}
+ \pmb{\phi} (t|x) = 
+\begin{pmatrix}
+    \phi^+ (t|x) \\
+    \phi^- (t|x) 
+\end{pmatrix}.
+\end{equation}
+Análogo a $t$ na MQ usual, $x$ na extensão STS é um parâmetro contínuo que pode ser escolhido com precisão arbitrária para avaliar a amplitude de probabilidade temporal $\pmb{\phi}(t|x)$. Da mesma forma que ocorre com ${\hat {\textrm H}}$ e $t$, ${\hat {\mathbbm P}}$ e $x$ não podem satisfazer o princípio da incerteza padrão.
+
+
+
+A partir de $\pmb{\phi}(t|x)$, obtemos a probabilidade de medir a partícula no intervalo de tempo $[t,t+dt]$, dado que a observação ocorre na posição $x$,
+\begin{equation}\label{rhoT}
+\rho(t|x)dt=\frac{|{_x\langle} t|\pmb{\phi}(x)\rangle|^2}{\langle \pmb{\phi}(x)|\pmb{\phi}(x) \rangle} dt=\frac{\pmb{\phi}^{\dagger}(t|x)\pmb{\phi}(t|x)}{\langle \pmb{\phi}(x)|\pmb{\phi}(x) \rangle}dt.
+\end{equation}
+Aqui, o símbolo $\dagger$ é o operador de transposição conjugado. Na Eq.~(\ref{rhoT}), a normalização com ${\langle \pmb{\phi}(x)|\pmb{\phi}(x) \rangle}$ é necessária já que ${\hat {\mathbbm P}}$ não é sempre hermitiano. Como resultado, a equação de Schrödinger EC~(\ref{SchroT}) não é unitária em geral. Perceba que ${\langle \pmb{\phi}(x)|\pmb{\phi}(x) \rangle}$ é a probabilidade da partícula chegar em $x$ independentemente do TOA. Embora possamos observar uma partícula em qualquer instante de tempo (admitindo que ela exista, $\langle \psi(t)|\psi(t)\rangle=1$), não podemos observá-la em qualquer posição, mesmo que esperemos por uma quantidade infinita de tempo; então $0 \leq \langle \pmb{\phi}(x)|\pmb{\phi}(x) \rangle \leq 1$ \cite{Ricardo}.
+
+
+
+Observe que a formulação da extensão STS não envolve os estados quânticos dos detectores e/ou relógios que medem o TOA, mas apenas as propriedades da própria partícula. Dessa forma, $\pmb{\phi}(t|x)$ pode ser identificado como uma amplitude de probabilidade de um TOA ideal. Por outro lado, vale ressaltar que o formalismo de Page e Wootters considera um sistema adicional desempenhando o papel de um relógio. Além disso, a superposição temporal do formalismo de Page e Wootters refere-se à história do sistema \cite{pagewootters}. Em contraste, na extensão STS, a superposição de tempo refere-se a um único evento, o TOA da partícula.
+
+Por fim, Ref. \cite{Dias} também resolve a Eq.~(\ref{Schro2T}) para a partícula livre, $V(x,t)=0$. Identificando $\sqrt{d/dt}$ com a derivada fracionária de Riemann-Liouville $_{-\infty}D^{1/2}_t$, que é equivalente à derivada fracionária de Caputo \cite{caputo}, temos que $_{-\infty}D^{1/2}_t \exp\\(-iwt)=\sqrt{-iw} \exp(-iwt)$. A densidade de probabilidade do tempo de chegada na posição $x$, Eq. (\ref{rhoT}), torna-se
+\begin{eqnarray} \label{pd}
+\rho(t|x)&=& \frac{1}{2\pi m\hbar}
+\Bigg\{~{\Bigg|}\int_0^{\infty}~{\tilde \phi}^+(P)~\sqrt{P}~{
+e}^{iPx/\hbar-iE_P t/\hbar}~dP{\Bigg |}^2
+\nonumber\\
+&+& {\Bigg |} \int_0^{\infty}~{\tilde \phi}^-(P)~\sqrt{P}~{ e}^{-iPx/\hbar -
+iE_P t/\hbar}~dP{\Bigg |}^2 ~\Bigg\} \frac{1}{\langle \pmb{\phi}(x) | \pmb{\phi}(x) \rangle},
+\end{eqnarray}
+onde $|{\tilde \phi}^{\pm}(P)|^2$ é a densidade de probabilidade da partícula ter momento $\pm P $ (com $P>0$), dado que sua observação ocorre em uma posição $x$. A  Ref.~\cite{Dias} reconhece a Eq.~(\ref{pd}) como a distribuição normalizada de Kijowski definida na Eq.~(\ref{eqK2}) identificando ${\tilde \phi}^{\pm}(P)$ como a função de onda de momento da MQ usual, ${\tilde \psi}(\pm P)$. No entanto, como as probabilidades na extensão STS estão condicionadas à uma determinada posição, essa identificação requer uma investigação mais cuidadosa. Posteriormente, depois de comparar a MQ usual e a extensão STS nas bases de energia e momento, respectivamente, e dar uma interpretação mais precisa da extensão STS, discutiremos as consequências de assumir ${\tilde \phi}^\pm(P)= {\tilde \psi}(\pm P)$.
+
+Finalmente, vários problemas nas propostas de um TOA ideal obtidas dentro do domínio da MQ padrão não surgem aqui na extensão STS. Por exemplo, o próprio procedimento de quantização define um operador de tempo auto-adjunto que satisfaz a relação de comutação canônica com o hamiltoniano. Além disso, diferente da densidade de corrente, a teoria STS fornece uma distribuição de probabilidade de tempo positivo definida, $\rho(t|x)$.
+
+
+
+
+%Podemos descrever um estado puro de uma partícula unidimensional sem spin na mecânica quântica como $| \psi(t) \rangle$, referindo ele a um espaço de hilbert $\mathcal{H}_{x}$. Nesse contexto, o observável da posição $\hat{X}$ é tal que $\hat{X} \left | x \right \rangle = x \left | x \right \rangle$. Para obtermos a função de onda de Schrödinger, basta aplicar o estado $| \psi(t) \rangle$ na base $\left | x \right \rangle$, isto é, $\langle x | \psi(t) \rangle = \psi(x|t)$, onde utilizamos a definição de probabilidade condicional aqui devido ao caráter probabilistico da mecânica quântica, sendo assim $| \langle x | \psi(t) \rangle|^2 = |\psi (x|t)|^2$ é tal qual usualmente interpretamos: \textit{\textbf{a densidade de probabilidade de detectarmos a partícula na posição $x$ dado que a medição ocorreu no instante $t$.}}
+
+%A definição de probabilidade condicional $P_{I}(i|j)$ utilizada consiste na probabilidade de o valor de $I$ ser $I = i$ \textbf{dado que} a variável $J$ possui valor $J = j$. Podemos então calcular a probabilidade do valor de $I$ estar dentro de um intervalo $a$ e $b$ \textit{dado que} $J = c$ como
+%\begin{equation}\label{eq1.15}
+%    p(a,b|c) = \int_{a}^{b} P_{I}(i|c) \text{d}i
+%\end{equation}
+%utilizando essa definição para estender a aplicação de probabilidades condicionais no contexto de duas variáveis aleatórias, isto é $P_{I,J} (i,j)$, devemos assumir a probabilidade das variáveis assumirem os valores $I = i \in [a,b]$ e $J = j \in [c,d]$ da seguinte maneira 
+%\begin{equation}\label{eq1.16}
+     %p(a,b\text{ }\& \text{ }c,d) = \int_{a}^{b} \int_{c}^{d} P_{I,J}(i,j) \text{d}i \text{d}j.
+%\end{equation}
+
+%Aproveitando estas essas definições podemos então construir uma expressão para o Teorema de Bayes. Esse teorema calcula a probabilidade de um evento acontecer com base em um conhecimento \textit{a priopri} que pode estar relacionado ao mesmo evento, de forma que
+%\begin{equation}\label{eq1.17}
+   %  P_{I,J}(i,j) = P_{I}(i|j) P_{J}(j), 
+%\end{equation}
+%isto é, a probabilidade das variáveis assumirem os valores $I = i$ \textbf{e} $J = j$ é igual à densidade de probabilidade de obtermos $I = i$ \textbf{dado que} $J = j$ multiplicada pela probabilidade da variável $J$ ser igual a $j$. O raciocínio da teoria STS consiste em perceber que a densidade de probabilidade conjunta possui simetria perante a troca de $i \text{ e } j$, ou seja, $ P_{I,J}(i,j) =  P_{J}(j|i)$. Visto que nada nos impede de trocar os papéis das variáveis $I$ e $J$ de forma que $P_{J,I}(j,i) =  P_{J}(j|i) P_{I}(i)$, constatamos que
+%\begin{equation}\label{eq1.18}
+ %    P_{I,J}(i,j) = P_{I}(i|j) P_{J}(j) =  P_{J}(j|i) P_{I}(i). 
+%\end{equation}
+
+
+%Em uma tentativa direta de espelhar simetricamente o papel do operador $\hat{X}$, precisamos agora criar um espaço de Hilbert diferente do qual utilizamos para construir o argumento de Pauli, introduzindo assim um novo estado $| \phi(x) \rangle$ em conjunto com um operador tempo $\hat{T}$, relacionando os mesmos ao que vamos chamar de espaço de Hilbert $\mathcal{H}_{T}$. Nessa nova configuração vamos considerar que os autovalores do operador $\hat{T}$ representam o tempo no qual o sistema será observado, isso nos informa que $\hat{T} \left | t \right \rangle = t \left | t \right \rangle$, ou seja: a função de onda condicional $\phi(t|x)$ agora corresponde à atuação do estado $| \phi(x) \rangle$ na base $|t \rangle$, onde mais uma vez $\langle x | \phi(x) \rangle = \phi(t|x)$. Agora, $|\phi (t|x)|^2$ será dita a \textit{\textbf{ densidade de probabilidade de detectarmos a partícula no instante $t$ dado que a medição ocorreu na posição $x$.}}
+
+%\subsection{Equação dinâmica do STS}
+%\label{sub:outrasubsection1a}
+
+%Nós definimos até então que as quantidades que são mensuráveis para o sistema para um instante de tempo qualquer como posição, momento e energia, são conhecidas como variáveis dinâmicas. Após da construção STS o tempo é promovido para variável dinâmica e passa a ser identificado pelo operador $\hat{T}$. Para formular uma equação para a função de onda temporal nesse contexto, vamos resolver a equação análoga a equação de Schrödinger dentro do espaço de hilbert $\mathcal{H}_{T}$.
+
+%Tradicionalmente, costumamos escrever que
+%\begin{equation}\label{eq2.5}
+    %H (q, p; t) = \frac{p^2}{2 m} + V (x,t) \Rightarrow H (\hat{X}, \hat{p}; t) = \frac{\hat{p}^2}{2 m} + V (\hat{X},t)
+%\end{equation}
+%onde podemos isolar então $\hat{p}$ na equação acima e explicitá-lo em função de $H \text{ e } V$ no intuito de substituir os operadores por suas versões "espelho" $\text{ }$que são utilizadas no formalismo STS
+%\begin{equation}\label{eq2.6}
+%\begin{aligned}
+     %p(t, H; x) = \pm \sqrt{2m} \left( H - V(t,x) \right)^{1/2} 	\Leftrightarrow P(\hat{T}, \hat{h}; x) = \hat{\sigma}_z \sqrt{2m} \left( \hat{h} - V(\hat{T},x) \right)^{1/2}
+%\end{aligned}
+%\end{equation}
+%aplicando então na equação de Scrödinger, obtemos nossa equação espaço-condicional
+%\begin{equation}\label{eq2.7}
+    %\sqrt{2m} \hat{\sigma}_z \left[ \hat{h} - V(\hat{T}, x) \right]^{1/2} | \phi(x) \rangle = - i \hbar \frac{d}{d x} | \phi (x) \rangle
+%\end{equation}
+%que quando aplicada em $\langle t |$, fornece
+%\begin{equation}\label{eq2.8}
+      %\sqrt{2m} \hat{\sigma}_z \left[ i \hbar \frac{\partial}{\partial t} - V(t, x) \right]^{1/2}  \phi(t,x)  = - i \hbar \frac{\partial}{\partial x} | \phi (t,x) \rangle.
+%\end{equation}
+%perceba que devido ao caráter matricial de $\hat{\sigma}_z$, nossa função de onda irá assumir o formato 
+%\begin{equation}\label{eq2.9}
+   % \phi (t,x) = 
+%\begin{pmatrix}
+   % \phi^+ (t,x) \\
+   % \phi^- (t,x) 
+%\end{pmatrix}
+%\end{equation}
+%onde $\psi^+$ representa a amplitude da partícula incidir em um sentido no aparato localizado em $x$ e $\psi^-$ no outro sentido. A densidade de probabilidade total fica então representada por 
+%\begin{equation}\label{eq2.10}
+   % \rho (t,x) = |\phi^+|^2 + |\phi^-|^2 = \phi^\dagger \phi.
+%\end{equation}
+  
+    %Analogamente à forma como resolvemos a equação de movimento de partículas livres na MQ, podemos usar uma separação de variáveis na forma $\phi(t|x) = e^{-i\epsilon t/ \hbar} \phi_\epsilon (x)$, expandindo a expressão de \ref{eq2.7} em série, isto é
+%\begin{equation}\label{eq2.11}
+    %\hat{\sigma_z} \sqrt{2m [\epsilon - V(x)]} \phi_\epsilon (x) = -i \hbar \frac{d}{dx} \phi_\epsilon (x)
+%\end{equation} 
+%problema este que configura uma equação diferencial de primeira ordem com solução já conhecida por nós no formato
+%\begin{equation}\label{eq2.12}
+   % \phi_\epsilon (x) = \frac{1}{\sqrt{2 \pi \hbar}} e^{(i/\hbar)\hat{\sigma_z} \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}}
+%\end{equation} 
+%como \ref{eq2.12} ainda é uma equação linear, podemos escrever a sua solução geral, isto é, a equaçào dinâmica de movimento da teoria STs como
+%\begin{equation}\label{eq2.13}
+  %  \phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(i/\hbar)\hat{\sigma}_z \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}-i\epsilon t /\hbar}.
+%\end{equation}
+
+
+
+
+% \section{Revisão sobre formalismos de Tempo de Tunelamento}
+% \label{sec:section3}
+
+% Não existe uma definição que seja universalmente aceita entre as conhecidas “tempo de permanência” (\textit{dwell time}), “tempo de tunelamento” (\textit{tunneling time}) ou “tempo de travessia” (\textit{transversal time}). Como Landauer coloca: “Não há direitos autorais sobre as expressões de tempo de travessia e tempo de tunelamento; cada autor pode escolher uma interpretação. Se um investigador quiser associá-lo ao tempo necessário para escrever o hamiltoniano de tunelamento de Bardeen no quadro-negro, não podemos dizer que está errado.” [13].
+
+% No entanto, como mencionado em Damborenea et al. o “tempo de permanência” é distinto do “tempo de travessia”, “tempo de atraso” ou “tempo de reflexão” [28], e é importante entender as diferenças entre cada uma dessas abordagens e suas respectivas particularidades associadas. Vamos enfatizar então uma abordagem especifica voltada para tentar definir o “tempo de tunelamento” que julgamos melhor se encaixar no contexto de comparação com o nosso modelo. 
+
+
+% \subsection{Distribuição temporal de Kijowski para Tempo de Travessia}
+% \label{sub:outrasubsection1c}
+
+% Para construir uma distribuição de probabilidade no contexto de tunelamento, isto é, quando uma barreira real é colocada antes de fazer nossa medição temporal, podemos utilizar dos mesmos axiomas propostos para formular a distribuiçào de Kijowski no caso de TOA. Definindo um funcional que atenda às condições para descrever o operador normalizado da distribuição de tempo de chegada para uma partícula tunelada, sua expressão pode ser obtida como em ref[8] ref[9],
+% \begin{equation}\label{T1}
+%     \Pi_{pot}^{on} (t) = \frac{1}{2 \pi m \hbar} \left| \int dk \widetilde{\psi}(k) e^{-i \hbar k^2 t / 2m + i \hbar k x} \sqrt{k} \frac{T(k)}{|T(k)|} \right|^2
+% \end{equation}
+% onde $T(k)$ é a amplitude do coeficiente de transmissão quântica ref[10]
+% \begin{equation}\label{T2}
+%     T(k) = \frac{4 k_0 k_1 e^{-i L(k_0 - k_1)}}{\left(k_0 + k_1 \right)^2 - e^{2 i L k_1} \left(k_0 - k_1 \right)^2}
+% \end{equation}
+% com $k_0 = \sqrt{2mE}$ e $k_1 = \sqrt{2m(E-V_0)}$. Esta expressão coincide com o proposto na ref[8] ref[9] ref[10] e também foi utilizada no contexto de comparação com o STS space na obra ref[11].
+
+% Na configuração que vamos propor, uma partícula se aproxima de um ponto muito distante pela esquerda do potencial real, para evitar problemas envolvendo medições negativas intrinsícas a esse modelo. Como nosso objetivo é propor um regime de medição positiva no lado direito do potencial impondo a certeza de transmissão, iremos utilizar a normalização do pacote de saída usando $T(k) \widetilde{\psi}(k) / (\int dk |T(k) \widetilde{\psi}(k)|^2 )^{1/2} $ em vez de apenas usar $\widetilde{\Psi} (k)$, ou seja, iremos considerar o potencial real como
+% parte do procedimento de preparação, impondo assim que a partícula irá interagir com o mesmo. A distribuição final é calculada utilizando esse fator na distribuição de Kijowski, sendo assim
+% \begin{equation}\label{T3}
+% \begin{split}
+%     \Pi_{K}^{T} (t) & = \frac{1}{2 \pi m \hbar} \left| \int dk \widetilde{\psi}(k) e^{-i \hbar k^2 t / 2m + i \hbar k x} \sqrt{k} T(k) \right|^2\\
+%     & \times \left( \int dk |T(k) \widetilde{\psi}(k)|^2 \right)^{-1}.
+% \end{split}
+% \end{equation}

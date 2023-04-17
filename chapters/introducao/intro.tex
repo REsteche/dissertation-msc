@@ -1,0 +1,35 @@
+\chapter{Introdução}
+\label{chap:intro}
+
+ \begin{citacao}
+ “Time is what we want most, but what we use worst."- Willian Penn  
+ \end{citacao}
+
+	Ainda nos dias de hoje, tempo na mecânica quântica é considerado um tema controverso, e isso se deve em parte ao fato de que existem dois tratamentos possíveis para o mesmo. Por um lado, na equação de Schrödinger, tempo não é um observável (tal qual o comportamento atribuído à posição), mas sim um parâmetro externo. O estado de um sistema quântico e a distribuição de probabilidade de uma quantidade física são condicionados em um dado instante de tempo. Por outro lado, o tempo pode ser uma quantidade mensurável na  MQ. Podemos medir o instante de tempo em que uma quantidade física assume um certo valor inicial e, enquanto o sistema evolui, medir o outro instante em que a mesma quantidade assume um dado valor final. Exemplos disso são as medições de tempo de chegada, tempo de permanência, tempo de vida, entre outros. 
+
+	Como um instante de tempo pode ser um observável, naturalmente levanta a questão de saber se podemos incluí-lo na formulação ortodoxa da mecânica quântica. A maneira mais comum de incorporar quantidades clássicas na formulação quântica é o método de quantização canônica, que consiste em substituir os colchetes de Poisson de um par de variáveis canônicas pelos colchetes de comutação dos operadores correspondentes. Dessa forma, dado o hamiltoniano $H(q, p)$ de um sistema clássico conservativo (com nenhuma dependência temporal explícita), sempre podemos fazer uma transformação canônica de $(q, p)$ para novas variáveis canônicas $(H, T)$, onde $H$ é o hamiltoniano do sistema e $T$ sua variável conjugada, que satisfaça a equação de Hamilton
+
+\begin{equation} \label{eq1.1}
+	\frac{dT}{dt} = \{ H, T \} = \frac{\delta H}{\delta H} \frac{\delta T}{\delta T} - \frac{\delta T}{\delta H} \frac{\delta H}{\delta T} = 1.
+\end{equation}
+
+Na equação acima, perceba $T$ como um intervalo de tempo. Tomando então a quantização $ \{ H, T \} \Rightarrow 1/i \hbar [\hat{H},\hat{T}]$, onde postulamos que $\hat{H}$ e $\hat{T}$ são operadores auto-adjuntos, chegamos a um operador tempo satisfazendo a relação de comutação quântica,
+\begin{equation} \label{eq1.2}
+	 [\hat{H},\hat{T}] = i \hbar.
+\end{equation}
+Isso pode ser feito tanto na representação de Heisenberg quanto na de Schrödinger. A Eq.~(\ref{eq1.2}) nos leva à relação de incerteza,
+\begin{equation} \label{eq1.3}
+	 \Delta H \Delta T \ge  \frac{1}{2} \left| \left<   [\hat{H},\hat{T}]  \right> \right|. 
+\end{equation}
+onde $\Delta H$ e $\Delta T$ são os desvios quadráticos médios de $\hat{H}$ e $\hat{T}$ respectivamente.
+    
+     Contudo, já no início da construção teórica da MQ, Pauli demonstrou que a existência de um operador tempo auto-adjunto seguindo a Eq.~(\ref{eq1.2}) é incompatível com o caráter limitado ou semilimitado do espectro do hamiltoniano, como mostraremos em detalhes na seção a seguir. Em contraste à teoria quântica tradicional, que não consegue satisfazer a hermiticidade de um operador temporal e atender a relação de comutação acima apresentada, os autores na Ref. \cite{Dias} propuseram uma extensão espaço-tempo-simétrica da mecânica quântica como solução para esse problema. Nesse contexto, seguindo um processo de quantização distinto, é introduzido um operador tempo que satisfaz simultaneamente tanto a condição de hermiticidade como a de comutação canônica com um novo operador hamiltoniano.
+    
+    Nesta dissertação, nossa intenção será propor uma interpretação mais precisa para a extensão proposta na Ref. \cite{Dias}, comparar as suas previsões com as da MQ usual e investigar medições do tempo de travessia. Como ainda será discutido nessa introdução, o caráter condicional no tempo da mecânica quântica tradicional gera complicações nas previsões dos tempos de chegada e travessia. Na próxima seção, vamos dicutir com mais detalhes o argumento proposto por Pauli para contextualizar melhor o problema do tempo como um observável. Em seguida, vamos revisar alguns modelos existentes na literatura para tempos de chegada e de tunelamento. Esses modelos servirão para comparar com as previsões da \textit{space-time-symmetrical} (STS). 
+
+
+
+
+
+ 
+ 
